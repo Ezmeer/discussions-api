@@ -10,3 +10,5 @@ class TestDiscussionModel:
         )
 
         assert comment1.content == "Top Comment"
+        assert comment1.author.username == "example_user"
+        assert comment1.discussion.title == "This is a discussion example title"
