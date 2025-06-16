@@ -12,6 +12,9 @@ class TimeStamp(models.Model):
 class User(models.Model):
     username = models.CharField(max_length=100, unique=True)
 
+    def __str__(self):
+        return f"User id {self.id} and name: {self.username}"
+
 
 class Discussion(TimeStamp):
     title = models.CharField(max_length=255)
@@ -21,7 +24,7 @@ class Discussion(TimeStamp):
         indexes = [models.Index(fields=['created_at'])]
 
     def __str__(self):
-        return f"Discussion {self.id} by User {self.user_id}"
+        return f"Discussion {self.id} by User {self.creator.username}"
 
 
 class Comment(TimeStamp):
