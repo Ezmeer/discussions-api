@@ -41,4 +41,5 @@ class Comment(TimeStamp):
         ]
 
     def __str__(self):
-        return f"Comment {self.id} by User {self.user_id}"
+        return f"Comment {self.id} by User {self.author.username}"
+
