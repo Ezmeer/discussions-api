@@ -29,15 +29,17 @@ class Discussion(TimeStamp):
 
 class Comment(TimeStamp):
     discussion = models.ForeignKey(Discussion, on_delete=models.CASCADE, related_name='comments')
+    parent = models.ForeignKey('self', null=True, blank=True, on_delete=models.CASCADE, related_name='replies')
     author = models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
     content = models.TextField()
-    children = models.ManyToManyField('self')
 
     class Meta:
         indexes = [
             models.Index(fields=['discussion']),
+            models.Index(fields=['parent']),
             models.Index(fields=['created_at']),
         ]
 
     def __str__(self):
         return f"Comment {self.id} by User {self.author.username}"
+
