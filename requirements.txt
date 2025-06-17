@@ -1,0 +1,12 @@
+asgiref==3.8.1
+Django==4.0.10
+djangorestframework==3.13.1
+iniconfig==2.1.0
+packaging==25.0
+pluggy==1.6.0
+Pygments==2.19.1
+pytest==8.4.0
+pytest-django==4.11.1
+pytz==2025.2
+setuptools==80.9.0
+sqlparse==0.5.3
